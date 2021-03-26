@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35FCB65B-10B1-4320-83D7-01C03EB07C43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kursach2</RootNamespace>
+    <AssemblyName>kursach2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChangeCustomerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeCustomerOrder.Designer.cs">
+      <DependentUpon>ChangeCustomerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeIllustratorOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeIllustratorOrder.Designer.cs">
+      <DependentUpon>ChangeIllustratorOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerAccount.Designer.cs">
+      <DependentUpon>CustomerAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerOrders.Designer.cs">
+      <DependentUpon>CustomerOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IllustratorAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IllustratorAccount.Designer.cs">
+      <DependentUpon>IllustratorAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IllustratorOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IllustratorOrders.Designer.cs">
+      <DependentUpon>IllustratorOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadWorkForm.Designer.cs">
+      <DependentUpon>LoadWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInSignUp.Designer.cs">
+      <DependentUpon>LogInSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MakeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeOrder.Designer.cs">
+      <DependentUpon>MakeOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Portfolio.Designer.cs">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocialMedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialMedia.Designer.cs">
+      <DependentUpon>SocialMedia.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChangeCustomerOrder.resx">
+      <DependentUpon>ChangeCustomerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeIllustratorOrder.resx">
+      <DependentUpon>ChangeIllustratorOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerAccount.resx">
+      <DependentUpon>CustomerAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerOrders.resx">
+      <DependentUpon>CustomerOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IllustratorAccount.resx">
+      <DependentUpon>IllustratorAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IllustratorOrders.resx">
+      <DependentUpon>IllustratorOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadWorkForm.resx">
+      <DependentUpon>LoadWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInSignUp.resx">
+      <DependentUpon>LogInSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MakeOrder.resx">
+      <DependentUpon>MakeOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portfolio.resx">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialMedia.resx">
+      <DependentUpon>SocialMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
