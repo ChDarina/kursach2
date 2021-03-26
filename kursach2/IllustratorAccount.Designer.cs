@@ -97,6 +97,7 @@
             this.socialmedia.TabIndex = 1;
             this.socialmedia.Text = "Социальные сети";
             this.socialmedia.UseVisualStyleBackColor = true;
+            this.socialmedia.Click += new System.EventHandler(this.socialmedia_Click);
             // 
             // PhoneNum
             // 

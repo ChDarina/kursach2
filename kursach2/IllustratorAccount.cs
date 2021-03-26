@@ -149,5 +149,11 @@ namespace kursach2
                 Update();
             }
         }
+
+        private void socialmedia_Click(object sender, EventArgs e)
+        {
+            SocialMedia s = new SocialMedia(current_acc);
+            s.Show();
+        }
     }
 }

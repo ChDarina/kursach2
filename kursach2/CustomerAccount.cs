@@ -12,10 +12,12 @@ namespace kursach2
 {
     public partial class CustomerAccount : Form
     {
+        bool cur_acc;
         public CustomerAccount(bool curacc)
         {
             InitializeComponent();
-            if(curacc)
+            cur_acc = curacc;
+            if (curacc)
             {
                 CustomerName.Text = Search.currentaccount.login;
                 Email.Text = Search.currentaccount.email;
@@ -25,7 +27,8 @@ namespace kursach2
 
         private void SocialMediabutton_Click(object sender, EventArgs e)
         {
-
+            SocialMedia s = new SocialMedia(cur_acc);
+            s.Show();
         }
     }
 }
