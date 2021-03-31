@@ -39,6 +39,7 @@
             this.PortfolioBox.Name = "PortfolioBox";
             this.PortfolioBox.Size = new System.Drawing.Size(491, 372);
             this.PortfolioBox.TabIndex = 0;
+            this.PortfolioBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PortfolioBox_MouseDoubleClick);
             // 
             // Portfolio
             // 

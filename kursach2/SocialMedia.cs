@@ -13,6 +13,7 @@ namespace kursach2
 {
     public partial class SocialMedia : Form
     {
+        ChangeSocialMedia socchange = null;
         List<int> id_soc = new List<int>();
         List<string> links = new List<string>();
         List<string> nameslinks = new List<string>();
@@ -22,7 +23,10 @@ namespace kursach2
             string connectionString = @"Data Source=LAPTOP-96NT0MPR;Initial Catalog=kursach;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-
+                SocialMediaBox.Items.Clear();
+                id_soc.Clear();
+                links.Clear();
+                nameslinks.Clear();
                 connection.Open();
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
@@ -70,6 +74,35 @@ namespace kursach2
             InitializeComponent();
             cur_acc = current_account;
             Update();
+        }
+
+        private void SocialMediaBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string link = "";
+            string namelink = "";
+            int code = -1;
+            if (cur_acc)
+            {
+                bool change;
+                if (SocialMediaBox.SelectedIndex == -1)
+                    change = false;
+                else
+                {
+                    change = true;
+                    link = links[SocialMediaBox.SelectedIndex];
+                    code = id_soc[SocialMediaBox.SelectedIndex];
+                    namelink = nameslinks[SocialMediaBox.SelectedIndex];
+                }
+                ChangeSocialMedia s = new ChangeSocialMedia(change, link, code, namelink, this);
+                s.Show();
+                Update();
+            }
+            Update();
+        }
+
+        private void SocialMedia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (socchange != null) socchange.Close();
         }
     }
 }

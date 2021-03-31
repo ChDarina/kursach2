@@ -13,6 +13,7 @@ namespace kursach2
 {
     public partial class CustomerOrders : Form
     {
+        ChangeCustomerOrder ord = null;
         List<int> order_id = new List<int>();
         public void ItemsUpdate()
         {
@@ -68,9 +69,14 @@ namespace kursach2
             if (orders.SelectedItem != null)
             {
                 int need_id = order_id[orders.SelectedIndex];
-                ChangeCustomerOrder ord = new ChangeCustomerOrder(need_id, this);
+                ord = new ChangeCustomerOrder(need_id, this);
                 ord.Show();
             }
+        }
+
+        private void CustomerOrders_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ord!=null) ord.Close();
         }
     }
 }

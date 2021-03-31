@@ -14,6 +14,7 @@ namespace kursach2
     public partial class IllustratorOrders : Form
     {
         List<int> order_id = new List<int>();
+        ChangeIllustratorOrder ord = null;
         public void ItemsUpdate()
         {
             orders.Items.Clear();
@@ -68,9 +69,14 @@ namespace kursach2
             if (orders.SelectedItem != null)
             {
                 int need_id = order_id[orders.SelectedIndex];
-                ChangeIllustratorOrder ord = new ChangeIllustratorOrder(need_id, this);
+                ord = new ChangeIllustratorOrder(need_id, this);
                 ord.Show();
             }
+        }
+
+        private void IllustratorOrders_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ord != null) ord.Close();
         }
     }
 }

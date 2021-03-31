@@ -13,9 +13,11 @@ namespace kursach2
 {
     public partial class Portfolio : Form
     {
+        bool curacc;
         public Portfolio(bool current_acc)
         {
-            bool curacc = current_acc;
+
+            curacc = current_acc;
             InitializeComponent();
             string connectionString = @"Data Source=LAPTOP-96NT0MPR;Initial Catalog=kursach;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -39,6 +41,15 @@ namespace kursach2
                 }
                 reader.Close();
             }
+        }
+
+        private void PortfolioBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //if(curacc)
+            //{
+            //    ChangeIllustrationTags form = new ChangeIllustrationTags();
+            //    form.Show();
+            //}
         }
     }
 }

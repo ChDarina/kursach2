@@ -36,6 +36,8 @@ namespace kursach2
         private Account LogInDatabase()
         {
             acc = null;
+            string login = InsertLogin.Text;
+            string password = InsertPassword.Text;
             string connectionString = @"Data Source=LAPTOP-96NT0MPR;Initial Catalog=kursach;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -44,41 +46,62 @@ namespace kursach2
                 command.Connection = connection;
                 if (CustomerChoice.Checked)
                 {
-                    string login = InsertLogin.Text;
-                    string password = InsertPassword.Text;
-                    string sqlExpression = "SELECT * FROM Покупатель WHERE Логин_покупателя = '" + login + "' AND Пароль_покупателя = " + password;
-                    SqlCommand commandread = new SqlCommand(sqlExpression, connection);
-                    SqlDataReader reader = commandread.ExecuteReader();
-                    if (reader.HasRows)
+                    if (login!="" && password!="")
                     {
-                        reader.Read();
-                        acc = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), reader.GetInt64(4), "Покупатель");
+                        string sqlExpression = "SELECT * FROM Покупатель WHERE Логин_покупателя = '" + login + "' AND Пароль_покупателя = '" + password + "'";
+                        SqlCommand commandread = new SqlCommand(sqlExpression, connection);
+                        SqlDataReader reader = commandread.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            long num = 0;
+                            if (reader.GetValue(4) == DBNull.Value) num = 0;
+                            else num = reader.GetInt64(4);
+                            acc = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), num, "Покупатель");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Неправильный логин или пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            InsertLogin.Clear();
+                            InsertPassword.Clear();
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Неправильный логин или пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        InsertLogin.Clear();
-                        InsertPassword.Clear();
-                    }
+                    else if(login == "" && password == "")
+                        MessageBox.Show("Вы не ввели пароль и логин!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if(login == "")
+                        MessageBox.Show("Вы не ввели логин!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if(password == "")
+                        MessageBox.Show("Вы не ввели пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (IllustratorChoice.Checked)
                 {
-                    string login = InsertLogin.Text;
-                    string password = InsertPassword.Text;
-                    string sqlExpression = "SELECT * FROM Иллюстратор WHERE Логин_иллюстратора = '" + login + "' AND Пароль_иллюстратора = " + password;
-                    SqlCommand commandread = new SqlCommand(sqlExpression, connection);
-                    SqlDataReader reader = commandread.ExecuteReader();
-                    if (reader.HasRows)
+                    if (login != "" && password != "")
                     {
-                        reader.Read();
-                        acc = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), reader.GetInt64(4), "Иллюстратор");
+                        string sqlExpression = "SELECT * FROM Иллюстратор WHERE Логин_иллюстратора = '" + login + "' AND Пароль_иллюстратора = '" + password + "'";
+                        SqlCommand commandread = new SqlCommand(sqlExpression, connection);
+                        SqlDataReader reader = commandread.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            long num = 0;
+                            if (reader.GetValue(4) == DBNull.Value) num = 0;
+                            else num = reader.GetInt64(4);
+                            acc = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), num, "Иллюстратор");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Неправильный логин или пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            InsertLogin.Clear();
+                            InsertPassword.Clear();
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Неправильный логин или пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        InsertLogin.Clear();
-                        InsertPassword.Clear();
-                    }
+                    else if (login == "" && password == "")
+                        MessageBox.Show("Вы не ввели пароль и логин!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (login == "")
+                        MessageBox.Show("Вы не ввели логин!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (password == "")
+                        MessageBox.Show("Вы не ввели пароль!", "Ошибка при входе в аккаунт", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             return acc;

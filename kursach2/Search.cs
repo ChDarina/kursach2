@@ -83,6 +83,7 @@ namespace kursach2
                         SqlDataReader newreader = newcommand.ExecuteReader();
                         newreader.Read();
                         listBox1.Items.Add(newreader.GetString(2));
+                        newreader.Close();
                     }
                 }
             }
@@ -138,7 +139,10 @@ namespace kursach2
                     SqlCommand commandread = new SqlCommand(sqlExpression, connection);
                     SqlDataReader reader = commandread.ExecuteReader();
                     reader.Read();
-                    illustratoraccount = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), reader.GetInt64(4), "Иллюстратор");
+                    long num = 0;
+                    if (reader.GetValue(4) == DBNull.Value) num = 0;
+                    else num = reader.GetInt64(4);
+                    illustratoraccount = new Account(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(1), num, "Иллюстратор");
                 }
                 if (currentaccount.id == illustratoraccount.id && currentaccount.type == illustratoraccount.type) curacc = true;
                 IllustratorAccount acc = new IllustratorAccount(curacc);

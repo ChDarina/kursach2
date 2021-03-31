@@ -39,6 +39,7 @@
             this.SocialMediaBox.Name = "SocialMediaBox";
             this.SocialMediaBox.Size = new System.Drawing.Size(299, 228);
             this.SocialMediaBox.TabIndex = 0;
+            this.SocialMediaBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SocialMediaBox_MouseDoubleClick);
             // 
             // SocialMedia
             // 
@@ -48,6 +49,7 @@
             this.Controls.Add(this.SocialMediaBox);
             this.Name = "SocialMedia";
             this.Text = "Социальные сети";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SocialMedia_FormClosing);
             this.ResumeLayout(false);
 
         }

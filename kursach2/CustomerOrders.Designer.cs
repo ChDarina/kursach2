@@ -51,6 +51,7 @@
             this.Controls.Add(this.orders);
             this.Name = "CustomerOrders";
             this.Text = "Заказы покупателя";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerOrders_FormClosing);
             this.ResumeLayout(false);
 
         }

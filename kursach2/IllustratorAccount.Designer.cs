@@ -60,7 +60,7 @@
             // 
             // checkportfolio
             // 
-            this.checkportfolio.Location = new System.Drawing.Point(331, 9);
+            this.checkportfolio.Location = new System.Drawing.Point(410, 9);
             this.checkportfolio.Name = "checkportfolio";
             this.checkportfolio.Size = new System.Drawing.Size(130, 51);
             this.checkportfolio.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // Makeorderbutton
             // 
-            this.Makeorderbutton.Location = new System.Drawing.Point(467, 9);
+            this.Makeorderbutton.Location = new System.Drawing.Point(546, 9);
             this.Makeorderbutton.Name = "Makeorderbutton";
             this.Makeorderbutton.Size = new System.Drawing.Size(130, 51);
             this.Makeorderbutton.TabIndex = 3;
@@ -86,12 +86,12 @@
             this.tagsListBox.Location = new System.Drawing.Point(12, 93);
             this.tagsListBox.Name = "tagsListBox";
             this.tagsListBox.ScrollAlwaysVisible = true;
-            this.tagsListBox.Size = new System.Drawing.Size(585, 132);
+            this.tagsListBox.Size = new System.Drawing.Size(664, 132);
             this.tagsListBox.TabIndex = 0;
             // 
             // socialmedia
             // 
-            this.socialmedia.Location = new System.Drawing.Point(195, 9);
+            this.socialmedia.Location = new System.Drawing.Point(274, 9);
             this.socialmedia.Name = "socialmedia";
             this.socialmedia.Size = new System.Drawing.Size(130, 51);
             this.socialmedia.TabIndex = 1;
@@ -119,7 +119,7 @@
             // 
             // AddTags
             // 
-            this.AddTags.Location = new System.Drawing.Point(446, 70);
+            this.AddTags.Location = new System.Drawing.Point(525, 72);
             this.AddTags.Name = "AddTags";
             this.AddTags.Size = new System.Drawing.Size(151, 26);
             this.AddTags.TabIndex = 5;
@@ -129,16 +129,16 @@
             // 
             // AddTag
             // 
-            this.AddTag.Location = new System.Drawing.Point(195, 72);
+            this.AddTag.Location = new System.Drawing.Point(274, 72);
             this.AddTag.Name = "AddTag";
-            this.AddTag.Size = new System.Drawing.Size(253, 22);
+            this.AddTag.Size = new System.Drawing.Size(255, 22);
             this.AddTag.TabIndex = 4;
             // 
             // IllustratorAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 237);
+            this.ClientSize = new System.Drawing.Size(688, 237);
             this.Controls.Add(this.tagsListBox);
             this.Controls.Add(this.AddTags);
             this.Controls.Add(this.AddTag);

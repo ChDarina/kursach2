@@ -79,40 +79,47 @@ namespace kursach2
             string connectionString = @"Data Source=LAPTOP-96NT0MPR;Initial Catalog=kursach;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = connection;
-                command.CommandText = @"INSERT INTO Иллюстрации VALUES (@Код_иллюстратора, @Наименование, @Дата_загрузки, @Приватность, @Сокрытие)";
-                command.Parameters.Add("@Код_иллюстратора", SqlDbType.Int);
-                command.Parameters.Add("@Наименование", SqlDbType.NVarChar, 255);
-                command.Parameters.Add("@Дата_загрузки", SqlDbType.DateTime);
-                command.Parameters.Add("@Приватность", SqlDbType.Bit);
-                command.Parameters.Add("@Сокрытие", SqlDbType.Bit);
-                int illustrator_id = Search.currentaccount.id;
-                DateTime curdate = new DateTime();
-                curdate = DateTime.Now;
-                string name = IllustrationName.Text;
-                bool priv = Private.Checked;
-                command.Parameters["@Код_иллюстратора"].Value = illustrator_id;
-                command.Parameters["@Наименование"].Value = name;
-                command.Parameters["@Дата_загрузки"].Value = curdate;
-                command.Parameters["@Приватность"].Value = priv;
-                command.Parameters["@Сокрытие"].Value = 0;
-                command.ExecuteNonQuery();
-                if(Order.Checked)
+                if (!Order.Checked || orders.SelectedIndex != -1)
                 {
-                    int need_id = order_id[orders.SelectedIndex];
-                    string sqlExpression = "SELECT IDENT_CURRENT('Иллюстрации') AS [IDENT_CURRENT]";
-                    SqlCommand commandread = new SqlCommand(sqlExpression, connection);
-                    SqlDataReader reader = commandread.ExecuteReader();
-                    reader.Read();
-                    int id = Int32.Parse(reader.GetValue(0).ToString());
-                    reader.Close();
-                    sqlExpression = "UPDATE Заказы SET Код_иллюстрации = " + id + " WHERE Код_заказа = " + need_id;
-                    commandread = new SqlCommand(sqlExpression, connection);
-                    commandread.ExecuteNonQuery();
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = @"INSERT INTO Иллюстрации VALUES (@Код_иллюстратора, @Наименование, @Дата_загрузки, @Приватность, @Сокрытие)";
+                    command.Parameters.Add("@Код_иллюстратора", SqlDbType.Int);
+                    command.Parameters.Add("@Наименование", SqlDbType.NVarChar, 255);
+                    command.Parameters.Add("@Дата_загрузки", SqlDbType.DateTime);
+                    command.Parameters.Add("@Приватность", SqlDbType.Bit);
+                    command.Parameters.Add("@Сокрытие", SqlDbType.Bit);
+                    int illustrator_id = Search.currentaccount.id;
+                    DateTime curdate = new DateTime();
+                    curdate = DateTime.Now;
+                    string name = IllustrationName.Text;
+                    bool priv = Private.Checked;
+                    command.Parameters["@Код_иллюстратора"].Value = illustrator_id;
+                    command.Parameters["@Наименование"].Value = name;
+                    command.Parameters["@Дата_загрузки"].Value = curdate;
+                    command.Parameters["@Приватность"].Value = priv;
+                    command.Parameters["@Сокрытие"].Value = 0;
+                    command.ExecuteNonQuery();
+                    if (Order.Checked)
+                    {
+                        if (orders.SelectedIndex != -1)
+                        {
+                            int need_id = order_id[orders.SelectedIndex];
+                            string sqlExpression = "SELECT IDENT_CURRENT('Иллюстрации') AS [IDENT_CURRENT]";
+                            SqlCommand commandread = new SqlCommand(sqlExpression, connection);
+                            SqlDataReader reader = commandread.ExecuteReader();
+                            reader.Read();
+                            int id = Int32.Parse(reader.GetValue(0).ToString());
+                            reader.Close();
+                            sqlExpression = "UPDATE Заказы SET Код_иллюстрации = " + id + " WHERE Код_заказа = " + need_id;
+                            commandread = new SqlCommand(sqlExpression, connection);
+                            commandread.ExecuteNonQuery();
+                        }
+                    }
+                    this.Close();
                 }
-                this.Close();
+                else if (Order.Checked) MessageBox.Show("Вы не указали заказ!", "Ошибка при добавлении работы", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

@@ -53,11 +53,23 @@
     <Compile Include="ChangeCustomerOrder.Designer.cs">
       <DependentUpon>ChangeCustomerOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeIllustrationTags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeIllustrationTags.Designer.cs">
+      <DependentUpon>ChangeIllustrationTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeIllustratorOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangeIllustratorOrder.Designer.cs">
       <DependentUpon>ChangeIllustratorOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeSocialMedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeSocialMedia.Designer.cs">
+      <DependentUpon>ChangeSocialMedia.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerAccount.cs">
       <SubType>Form</SubType>
@@ -136,8 +148,14 @@
     <EmbeddedResource Include="ChangeCustomerOrder.resx">
       <DependentUpon>ChangeCustomerOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangeIllustrationTags.resx">
+      <DependentUpon>ChangeIllustrationTags.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangeIllustratorOrder.resx">
       <DependentUpon>ChangeIllustratorOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeSocialMedia.resx">
+      <DependentUpon>ChangeSocialMedia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerAccount.resx">
       <DependentUpon>CustomerAccount.cs</DependentUpon>

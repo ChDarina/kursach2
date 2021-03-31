@@ -51,6 +51,7 @@
             this.Controls.Add(this.orders);
             this.Name = "IllustratorOrders";
             this.Text = "Заказы иллюстратора";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IllustratorOrders_FormClosing);
             this.ResumeLayout(false);
 
         }
